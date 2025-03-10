@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Harshith - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        #about {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        #about .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-right: 20px;
+            float: left;
+            border: 4px solid #333;
+        }
+
+        #about h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #about p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        #skills {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        #skills h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #skills ul {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        #skills li {
+            font-size: 1.1em;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        #projects {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        #projects h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .project {
+            margin-bottom: 40px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .project h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .project p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        #contact {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+
+        #contact h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        #contact p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        footer p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1>Sai Harshith Myla</h1>
+            <p>Web Development and Software Developer</p>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <img src="20240807_125924_1723875118043.jpg" alt="Sai Harshith Myla" class="profile-img">
+            <h2>About Me</h2>
+            <p>
+                Hi, I'm Sai Harshith Myla, a web developer with a passion for creating clean and responsive websites. I have experience with HTML, CSS, and JavaScript, and I'm always eager to learn new technologies. Currently pursuing a degree in Computer Science from VVIT. I enjoy problem-solving and building websites that are both functional and user-friendly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>HTML & CSS</li>
+                <li>JavaScript</li>
+                <li>JAVA</li>
+                <li>C</li>
+                <li>DSA</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project">
+                <img src="p1.jpeg" alt="Project-1" style="width: 250px; height: auto;">
+                <h3>To-Do List App</h3>
+                <p>
+                    A <strong>To-Do List App</strong> helps users organize tasks by allowing them to add, edit, and track their to-dos. It includes features like reminders, due dates, and task categorization to keep everything organized. The app makes it easy to stay productive and manage daily tasks efficiently.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+    <div class="container">
+        <h2>Resume</h2>
+        <p>Download my resume to learn more about my qualifications and experience.</p>
+        <a href="resume.pdf" download><strong>Download Resume</strong></a>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <p>Mail: saiharshithmyla@gmail.com</p>
+            <p>Phone: 9885798210</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sai Harshith Myla. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
