@@ -1,0 +1,209 @@
+HTML CODE:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <link rel="stylesheet" href="task3.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>/</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>*</button>
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>-</button>
+      <button>0</button>
+      <button>.</button>
+      <button>=</button>
+      <button>+</button>
+      <button>C</button>
+    </div>
+  </div>
+  <script src="task3.js"></script>
+</body>
+</html>
+
+
+CSS CODE:
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  .calculator {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  #display {
+    width: 100%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+  
+  button {
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #777;
+  }
+  
+  button:active {
+    background-color: #444;
+  }
+  
+  button[data-operator] {
+    background-color: #ff9500;
+  }
+  
+  button[data-operator]:hover {
+    background-color: #ffaa33;
+  }
+  
+  button[data-operator]:active {
+    background-color: #cc7700;
+  }
+  
+  button[data-clear] {
+    background-color: #ff3b30;
+  }
+  
+  button[data-clear]:hover {
+    background-color: #ff5e52;
+  }
+  
+  button[data-clear]:active {
+    background-color: #cc2c24;
+  }
+
+
+JAVASCRIPT CODE:
+
+const display = document.getElementById('display');
+const buttons = document.querySelectorAll('.buttons button');
+
+let currentInput = '';
+let operator = '';
+let firstOperand = '';
+let secondOperand = '';
+let shouldResetInput = false;
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const value = button.textContent;
+
+    if (value === 'C') {
+      clearCalculator();
+    } else if (value === '=') {
+      calculateResult();
+    } else if (['+', '-', '*', '/'].includes(value)) {
+      handleOperator(value);
+    } else {
+      handleNumber(value);
+    }
+  });
+});
+
+function clearCalculator() {
+  currentInput = '';
+  operator = '';
+  firstOperand = '';
+  secondOperand = '';
+  shouldResetInput = false;
+  display.value = '';
+}
+
+function calculateResult() {
+  if (operator && firstOperand && currentInput) {
+    secondOperand = currentInput;
+    const result = calculate(firstOperand, secondOperand, operator);
+    
+    // Handle division by zero
+    display.value = result === 'Error' ? 'Error' : result;
+    
+    currentInput = result !== 'Error' ? result.toString() : '';
+    operator = '';
+    firstOperand = '';
+    secondOperand = '';
+    shouldResetInput = true;
+  }
+}
+
+function handleOperator(op) {
+  if (operator && !currentInput) return; // Prevent consecutive operators
+  
+  if (currentInput) {
+    if (firstOperand) {
+      calculateResult();
+    }
+    firstOperand = currentInput;
+    operator = op;
+    shouldResetInput = true;
+  }
+}
+
+function handleNumber(num) {
+  if (num === '.' && currentInput.includes('.')) return; // Prevent multiple decimals
+  
+  if (shouldResetInput) {
+    currentInput = num;
+    shouldResetInput = false;
+  } else {
+    currentInput += num;
+  }
+  display.value = currentInput;
+}
+
+function calculate(a, b, operator) {
+  a = parseFloat(a);
+  b = parseFloat(b);
+
+  if (operator === '/' && b === 0) return 'Error'; // Prevent division by zero
+
+  switch (operator) {
+    case '+': return a + b;
+    case '-': return a - b;
+    case '*': return a * b;
+    case '/': return a / b;
+    default: return 0;
+  }
+}
